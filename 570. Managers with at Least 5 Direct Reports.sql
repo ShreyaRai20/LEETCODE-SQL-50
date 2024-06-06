@@ -1,0 +1,8 @@
+
+SELECT name
+FROM EMPLOYEE E1 JOIN (
+SELECT managerId, COUNT(id) COUNT_ID
+FROM EMPLOYEE
+GROUP BY ManagerId) E2 
+ON E2.managerId = E1.id
+WHERE COUNT_ID > 4; -- COUNT_ID >= 5
